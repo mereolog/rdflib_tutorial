@@ -1,0 +1,39 @@
+@prefix ex: <https://example.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology .
+
+ex:Person a owl:Class ; rdfs:label "Person" .
+ex:Ontologist a owl:Class ; rdfs:subClassOf ex:Person ; rdfs:label "Ontologist" .
+ex:Skill a owl:Class ; rdfs:label "Skill" .
+ex:Project a owl:Class ; rdfs:label "Project" .
+
+ex:hasSkill a owl:ObjectProperty ;
+  rdfs:domain ex:Person ; rdfs:range ex:Skill ;
+  rdfs:label "has skill" .
+
+ex:worksOn a owl:ObjectProperty ;
+  rdfs:domain ex:Person ; rdfs:range ex:Project ;
+  rdfs:label "works on" .
+
+ex:email a owl:DatatypeProperty ;
+  rdfs:domain ex:Person ; rdfs:range xsd:string ;
+  rdfs:label "email" .
+
+ex:semanticWeb a ex:Skill ; rdfs:label "Semantic Web" .
+ex:python a ex:Skill ; rdfs:label "Python" .
+ex:atlas a ex:Project ; rdfs:label "Ontology Quality Monitor" .
+
+ex:alice a ex:Ontologist ;
+  rdfs:label "Alice" ;
+  ex:email "alice@example.org" ;
+  ex:hasSkill ex:semanticWeb, ex:python ;
+  ex:worksOn ex:atlas .
+
+ex:bob a ex:Person ;
+  rdfs:label "Bob" ;
+  ex:email "bob@example.org" ;
+  ex:hasSkill ex:semanticWeb .
