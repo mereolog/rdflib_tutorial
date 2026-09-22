@@ -9,7 +9,7 @@ ex: a owl:Ontology .
 ex:Person a owl:Class ; rdfs:label "Person" .
 ex:Ontologist a owl:Class ; rdfs:subClassOf ex:Person ; rdfs:label "Ontologist" .
 ex:Skill a owl:Class ; rdfs:label "Skill" .
-ex:Project a owl:Class .
+ex:Project a owl:Class ; rdfs:label "Project" .
 
 ex:hasSkill a owl:ObjectProperty ;
   rdfs:domain ex:Person ; rdfs:range ex:Skill ;
